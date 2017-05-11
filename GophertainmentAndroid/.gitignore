@@ -8,3 +8,4 @@
 /captures
 .externalNativeBuild
 .idea/*
+../.DS_Store

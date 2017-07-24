@@ -2,23 +2,20 @@
 <android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="100dp">
 
     <ImageView
-            android:id="@+id/resultImageView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginBottom="16dp"
+            android:id="@+id/resultPosterImage"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
             app:srcCompat="@android:drawable/ic_menu_report_image"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            android:layout_marginStart="16dp"/>
+            tools:layout_editor_absoluteX="2dp"/>
 
     <LinearLayout
             android:layout_width="286dp"
@@ -31,36 +28,37 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toRightOf="@+id/resultImageView">
+            app:layout_constraintLeft_toRightOf="@+id/resultPosterImage">
 
         <TextView
-                android:id="@+id/resultTitleTV"
+                android:id="@+id/resultTitleName"
                 android:text="Title"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:gravity="center_vertical"/>
+                android:gravity="center_vertical"
+                android:textSize="24sp"/>
 
         <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:paddingBottom="8dp">
 
             <ImageView
-                    android:id="@+id/resultMediaTypeTV"
+                    android:id="@+id/resultMediaType"
                     android:layout_width="50dp"
                     android:layout_height="0dp"
-                    android:layout_marginLeft="@dimen/shortMargin"
-                    android:layout_marginStart="@dimen/shortMargin"
                     android:foregroundGravity="center"
                     app:srcCompat="@drawable/ic_movie_color_icon"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintVertical_bias="0.0"/>
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:layout_editor_absoluteX="1dp"
+                    />
 
             <ImageView
-                    android:id="@+id/imageView2"
+                    android:id="@+id/resultPopularityImg"
                     android:layout_width="50dp"
                     android:layout_height="0dp"
                     android:foregroundGravity="center"
@@ -70,7 +68,8 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    app:layout_constraintLeft_toRightOf="@+id/resultMediaTypeTV"/>
+                    app:layout_constraintLeft_toRightOf="@+id/resultMediaType"
+                    />
 
 
             <TextView
@@ -84,18 +83,20 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    app:layout_constraintLeft_toRightOf="@+id/resultMediaTypeTV"/>
+                    app:layout_constraintLeft_toRightOf="@+id/resultMediaType"
+                    />
 
             <TextView
                     android:id="@+id/resultReleaseDate"
                     android:text="release date"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
                     android:layout_marginLeft="16dp"
                     android:gravity="center"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toRightOf="@+id/resultPopularityTV"/>
+                    app:layout_constraintLeft_toRightOf="@+id/resultPopularityTV"
+                    android:layout_marginStart="16dp"/>
 
 
         </android.support.constraint.ConstraintLayout>

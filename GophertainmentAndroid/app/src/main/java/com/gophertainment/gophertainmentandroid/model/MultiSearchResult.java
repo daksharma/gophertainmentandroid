@@ -47,6 +47,10 @@ public class MultiSearchResult {
     @Expose
     private String OriginalLanguage;
 
+    @SerializedName("profile_path")
+    @Expose
+    private String ProfilePath;
+
     @SerializedName("poster_path")
     @Expose
     private String PosterPath;
@@ -60,43 +64,47 @@ public class MultiSearchResult {
     }
 
     public void setName(String name) {
-        Name = name;
+        this.Name = name;
     }
 
     public void setTitle(String title) {
-        Title = title;
+        this.Title = title;
     }
 
     public void setOverview(String overview) {
-        Overview = overview;
+        this.Overview = overview;
     }
 
     public void setMediaType(String mediaType) {
-        MediaType = mediaType;
+        this.MediaType = mediaType;
     }
 
     public void setPopularity(double popularity) {
-        Popularity = popularity;
+        this.Popularity = popularity;
     }
 
     public void setFirstAirDate(String firstAirDate) {
-        FirstAirDate = firstAirDate;
+        this.FirstAirDate = firstAirDate;
     }
 
     public void setReleaseDate(String releaseDate) {
-        ReleaseDate = releaseDate;
+        this.ReleaseDate = releaseDate;
     }
 
     public void setOriginalLanguage(String originalLanguage) {
-        OriginalLanguage = originalLanguage;
+        this.OriginalLanguage = originalLanguage;
+    }
+
+    public void setProfilePath(String profilePath) {
+        this.ProfilePath = profilePath;
     }
 
     public void setPosterPath(String posterPath) {
-        PosterPath = posterPath;
+        this.PosterPath = posterPath;
     }
 
     public void setBackdropPath(String backdropPath) {
-        BackdropPath = backdropPath;
+        this.BackdropPath = backdropPath;
     }
 
 
@@ -135,6 +143,10 @@ public class MultiSearchResult {
 
     public String getOriginalLanguage() {
         return OriginalLanguage;
+    }
+
+    public String getProfilePath() {
+        return ProfilePath;
     }
 
     public String getPosterPath() {

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="baseMargin">16dp</dimen>
+    <dimen name="shortMargin">8dp</dimen>
+    <dimen name="buttonHeight">36dp</dimen>
+    <dimen name="editTextSize">15sp</dimen>
+    <dimen name="baseTextSize">15sp</dimen>
+</resources>

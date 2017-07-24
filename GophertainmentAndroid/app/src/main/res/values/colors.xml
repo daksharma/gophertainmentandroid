@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <!-- Material Color -->
+    <color name="colorPrimary">#E64A19</color> <!-- Deep Orange -->
+    <color name="colorPrimaryDark">#bf360c</color> <!-- Deep Orange Darken 4 -->
+    <color name="colorAccent">#4DB6AC</color> <!-- Teal 300 -->
+    <color name="buttonColor">#f4511e</color> <!-- Deep Orange Darken 1 -->
 </resources>

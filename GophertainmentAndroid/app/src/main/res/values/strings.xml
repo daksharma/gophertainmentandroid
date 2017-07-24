@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">GophertainmentAndroid</string>
+    <string name="buttonSearch">Search</string>
+    <string name="searchHint">Movies, shows, actors, directors...</string>
+
+    <string name="poster_image_path">https://image.tmdb.org/t/p/w300</string>
+    <string name="backdrop_image_path">https://image.tmdb.org/t/p/w600</string>
 </resources>

@@ -5,12 +5,13 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="170dp"
+        android:paddingBottom="5dp">
 
     <ImageView
             android:id="@+id/resultPosterImage"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
+            android:layout_width="120dp"
+            android:layout_height="0dp"
             app:srcCompat="@android:drawable/ic_menu_report_image"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -18,7 +19,7 @@
             tools:layout_editor_absoluteX="2dp"/>
 
     <LinearLayout
-            android:layout_width="286dp"
+            android:layout_width="265dp"
             android:layout_height="0dp"
             android:orientation="vertical"
             android:layout_marginRight="16dp"
@@ -34,32 +35,31 @@
                 android:id="@+id/resultTitleName"
                 android:text="Title"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:gravity="center_vertical"
+                android:layout_height="75dp"
+                android:gravity="left|bottom"
                 android:textSize="24sp"/>
 
         <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="75dp"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:paddingBottom="8dp">
 
             <ImageView
                     android:id="@+id/resultMediaType"
-                    android:layout_width="50dp"
+                    android:layout_width="40dp"
                     android:layout_height="0dp"
                     android:foregroundGravity="center"
                     app:srcCompat="@drawable/ic_movie_color_icon"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintVertical_bias="0.0"
-                    tools:layout_editor_absoluteX="1dp"
+                    tools:layout_editor_absoluteX="0dp"
                     />
 
             <ImageView
                     android:id="@+id/resultPopularityImg"
-                    android:layout_width="50dp"
+                    android:layout_width="40dp"
                     android:layout_height="0dp"
                     android:foregroundGravity="center"
                     android:layout_marginLeft="16dp"
@@ -75,14 +75,13 @@
             <TextView
                     android:id="@+id/resultPopularityTV"
                     android:text="*"
-                    android:layout_width="50dp"
+                    android:layout_width="40dp"
                     android:layout_height="0dp"
                     android:gravity="center"
-                    android:layout_marginLeft="16dp"
+                    android:layout_marginLeft="15dp"
                     android:layout_marginStart="16dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0"
                     app:layout_constraintLeft_toRightOf="@+id/resultMediaType"
                     />
 

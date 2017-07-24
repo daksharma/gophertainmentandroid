@@ -44,10 +44,9 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView = (RecyclerView) findViewById(R.id.resultRecView);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setHasFixedSize(true);
 
         setUpUI();
-
-
     }
 
     public void setUpUI() {
@@ -77,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<JsonResult> call, Response<JsonResult> response) {
                 Log.i(TAG, "GOT RESPONSE");
                 List<MultiSearchResult> results = ((JsonResult) response.body()).getResults();
-                mRecyclerView.setHasFixedSize(true);
                 mResultRecyclerAdapter = new ResultRecyclerAdapter(getApplicationContext(), results);
                 mRecyclerView.setAdapter(mResultRecyclerAdapter);
             }
@@ -94,5 +92,4 @@ public class MainActivity extends AppCompatActivity {
         InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
-
 }

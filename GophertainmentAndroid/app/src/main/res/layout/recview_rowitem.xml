@@ -53,6 +53,7 @@
                     android:foregroundGravity="center"
                     app:srcCompat="@drawable/ic_movie_color_icon"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     tools:layout_editor_absoluteX="0dp"
                     />

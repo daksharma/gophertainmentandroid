@@ -1,6 +1,7 @@
 package com.gophertainment.gophertainmentandroid;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -34,16 +35,21 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
     @Override
     public ResultViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recview_rowitem,parent,false);
-        return new ResultViewHolder((view));
+        ResultViewHolder rvh = new ResultViewHolder(view, mContext, results);
+        return rvh;
     }
 
     @Override
     public void onBindViewHolder(ResultViewHolder holder, int position) {
         holder.TitleName.setText(getResultTitleOrName(position));
         holder.MediaType.setImageResource(getResulMediaType(position));
+
+        //TODO: fix popularity text size in xml
         holder.Popularity.setText(String.format("%.1f",results.get(position).getPopularity()));
+
         holder.FirstReleaseDate.setText(firstReleaseDate(position));
         Picasso.with(mContext).load(getPosterImageUrl(position)).into(holder.PosterImg);
+
     }
 
     @Override
@@ -78,7 +84,6 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
     }
 
     public int getResulMediaType(int position) {
-        System.out.println(results.get(position).getMediaType());
         if (results.get(position).getMediaType().equalsIgnoreCase("movie")) {
             return R.drawable.ic_movie_color_icon;
         } else if (results.get(position).getMediaType().equalsIgnoreCase("tv")) {
@@ -99,21 +104,48 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
     }
 
 
-    public class ResultViewHolder extends RecyclerView.ViewHolder {
+    public class ResultViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
+
+        List<MultiSearchResult> mSearchResults;
+        Context ctx;
         ImageView PosterImg;
         ImageView MediaType;
         TextView  Popularity;
         TextView  TitleName;
         TextView  FirstReleaseDate;
 
-        public ResultViewHolder(View itemView) {
+        public ResultViewHolder(View itemView, Context context, List<MultiSearchResult> results) {
             super(itemView);
+            this.ctx = context;
+            this.mSearchResults = results;
+            itemView.setOnClickListener(this);
             PosterImg = (ImageView) itemView.findViewById(R.id.resultPosterImage);
             MediaType = (ImageView) itemView.findViewById(R.id.resultMediaType);
             Popularity = (TextView) itemView.findViewById(R.id.resultPopularityTV);
             TitleName = (TextView) itemView.findViewById(R.id.resultTitleName);
             FirstReleaseDate = (TextView) itemView.findViewById(R.id.resultReleaseDate);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int position = getAdapterPosition();
+            routeDetailType(results.get(position));
+
+        }
+
+        public void routeDetailType(MultiSearchResult res) {
+            Intent intent;
+            if (res.getMediaType().equalsIgnoreCase("movie")) {
+                intent = new Intent(this.ctx, MovieDetails.class);
+                intent.putExtra("movieId", res.getID());
+                this.ctx.startActivity(intent);
+            } else if (res.getMediaType().equalsIgnoreCase("tv")) {
+                intent = new Intent(this.ctx, TvShowDetailsActivity.class);
+                intent.putExtra("tvShowId", res.getID());
+                this.ctx.startActivity(intent);
+            } else {
+            }
         }
     }
 

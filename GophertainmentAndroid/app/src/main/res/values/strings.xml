@@ -5,6 +5,7 @@
 
     <string name="notAvail">N/A</string>
 
+    <string name="no_image_found">https://assets.tmdb.org/assets/1c4aa0e7695a4eebe9a4d2c34a93bf34/images/no-poster-w600_and_h900_bestv2-v2.png</string>
     <string name="poster_image_path">https://image.tmdb.org/t/p/w300</string>
     <string name="backdrop_image_path">https://image.tmdb.org/t/p/w600</string>
 </resources>

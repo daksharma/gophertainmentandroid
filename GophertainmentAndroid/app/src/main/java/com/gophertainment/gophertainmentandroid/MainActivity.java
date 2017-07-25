@@ -76,8 +76,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<JsonResult> call, Response<JsonResult> response) {
                 Log.i(TAG, "GOT RESPONSE");
                 List<MultiSearchResult> results = ((JsonResult) response.body()).getResults();
-                mResultRecyclerAdapter = new ResultRecyclerAdapter(getApplicationContext(), results);
-                mRecyclerView.setAdapter(mResultRecyclerAdapter);
+                passSearchResult(results);
             }
 
             @Override
@@ -86,6 +85,11 @@ public class MainActivity extends AppCompatActivity {
                 if (call.isCanceled()) { Log.e(TAG, "CALL WAS CANCELLED"); }
             }
         });
+    }
+
+    public void passSearchResult(List<MultiSearchResult> msr) {
+        mResultRecyclerAdapter = new ResultRecyclerAdapter(getApplicationContext(), msr);
+        mRecyclerView.setAdapter(mResultRecyclerAdapter);
     }
 
     public void hideKeyboard(View view) {

@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void getMultiSearchResults(String searchString) {
         Map userString = new HashMap();
-        userString.put("usersearchstring", searchString);
+        userString.put(getApplicationContext().getString(R.string.userSearchString), searchString);
 
         mApiInterface = GopherApi.getApiClient().create(ApiInterface.class);
         Call<JsonResult> call = mApiInterface.getMultiSearchResult(userString);

@@ -1,9 +1,9 @@
 package com.gophertainment.gophertainmentandroid;
 
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,14 +20,16 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MovieDetails extends AppCompatActivity {
-    private final static String TAG = MovieDetails.class.getSimpleName();
-    ActionBar ab = getSupportActionBar();
+public class MovieDetailsActivity extends AppCompatActivity {
+    private final static String TAG = MovieDetailsActivity.class.getSimpleName();
 
     ImageView backDropImg;
-    TextView movieTitle;
     TextView movieTagline;
     TextView movieOverview;
+
+    Toolbar                 movieDetailToolBar;
+    CollapsingToolbarLayout movieDetailCollapseToolBarLayout;
+
     private ApiInterface mApiInterface;
 
     @Override
@@ -35,22 +37,26 @@ public class MovieDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_details);
         setUpMovieDetailUI();
-        int movieID = getIntent().getIntExtra("movieId", 0);
+        String movieId = getApplicationContext().getString(R.string.movieId);
+        int movieID = getIntent().getIntExtra(movieId, 0);
         getMovieDetail(movieID);
 
     }
 
     public void setUpMovieDetailUI() {
         backDropImg = (ImageView) findViewById(R.id.movieBackDropImage);
-        movieTitle = (TextView) findViewById(R.id.movieTitleText);
         movieTagline = (TextView) findViewById(R.id.movieTaglineText);
         movieOverview = (TextView) findViewById(R.id.movieOverViewText);
+
+        movieDetailToolBar = (Toolbar) findViewById(R.id.movieDetailToolBar);
+        setSupportActionBar(movieDetailToolBar);
+        movieDetailCollapseToolBarLayout = (CollapsingToolbarLayout) findViewById(R.id.movieDetailCollapsingToolBar);
     }
 
 
     public void getMovieDetail(final int movieId) {
         Map userString = new HashMap();
-        userString.put("moviesearchid", movieId);
+        userString.put(getApplicationContext().getString(R.string.moviesearchid), movieId);
 
         mApiInterface = GopherApi.getApiClient().create(ApiInterface.class);
         Call<Movie> call = mApiInterface.getMovieDetails(userString);
@@ -60,8 +66,7 @@ public class MovieDetails extends AppCompatActivity {
             public void onResponse(Call<Movie> call, Response<Movie> response) {
                 Log.i(TAG, "GOT RESPONSE");
                 Movie     movieDetails = response.body();
-                ab.setTitle(movieDetails.getTitle());
-                movieTitle.setText(movieDetails.getTitle());
+                movieDetailCollapseToolBarLayout.setTitle(movieDetails.getTitle());
                 movieTagline.setText((movieDetails.getTagline() != null) ? movieDetails.getTagline() : "");
                 movieOverview.setText((movieDetails.getOverview() != null) ? movieDetails.getOverview() : "");
                 Picasso.with(getApplicationContext()).load(getBackdropImg(movieDetails.getBackdropPath())).into(backDropImg);
@@ -76,13 +81,8 @@ public class MovieDetails extends AppCompatActivity {
     }
 
     public String getBackdropImg(String bd) {
-        Resources res    = getResources();
-        String    imgUrl = res.getString(R.string.poster_image_path);
-        if (bd != null) {
-            return imgUrl + bd;
-        } else {
-            return res.getString(R.string.no_image_found);
-        }
+        return (bd != null) ? getResources().getString(R.string.backdrop_image_path) + bd
+                : getResources().getString(R.string.no_image_found);
     }
 
 }

@@ -65,10 +65,9 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
         } else if (results.get(position).getProfilePath() != null) {
             return imgUrl + results.get(position).getProfilePath();
         } else {
-            return "https://assets.tmdb.org/assets/1c4aa0e7695a4eebe9a4d2c34a93bf34/images/no-poster-w600_and_h900_bestv2-v2.png";
+            return res.getString(R.string.no_image_found);
         }
     }
-
 
 
     public String getResultTitleOrName(int position) {
@@ -128,21 +127,17 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
         }
 
         @Override
-        public void onClick(View v) {
-            int position = getAdapterPosition();
-            routeDetailType(results.get(position));
-
-        }
+        public void onClick(View v) { routeDetailType(results.get(getAdapterPosition())); }
 
         public void routeDetailType(MultiSearchResult res) {
             Intent intent;
             if (res.getMediaType().equalsIgnoreCase("movie")) {
-                intent = new Intent(this.ctx, MovieDetails.class);
-                intent.putExtra("movieId", res.getID());
+                intent = new Intent(this.ctx, MovieDetailsActivity.class);
+                intent.putExtra(this.ctx.getString(R.string.movieId), res.getID());
                 this.ctx.startActivity(intent);
             } else if (res.getMediaType().equalsIgnoreCase("tv")) {
                 intent = new Intent(this.ctx, TvShowDetailsActivity.class);
-                intent.putExtra("tvShowId", res.getID());
+                intent.putExtra(this.ctx.getString(R.string.tvShowId), res.getID());
                 this.ctx.startActivity(intent);
             } else {
             }

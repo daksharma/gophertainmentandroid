@@ -3,6 +3,8 @@ package com.gophertainment.gophertainmentandroid;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.ImageView;
@@ -13,6 +15,9 @@ import com.gophertainment.gophertainmentandroid.network.ApiInterface;
 import com.gophertainment.gophertainmentandroid.network.GopherApi;
 import com.squareup.picasso.Picasso;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,9 +31,20 @@ public class MovieDetailsActivity extends AppCompatActivity {
     ImageView backDropImg;
     TextView movieTagline;
     TextView movieOverview;
+    TextView movieReleaseDate;
+
 
     Toolbar                 movieDetailToolBar;
     CollapsingToolbarLayout movieDetailCollapseToolBarLayout;
+
+    private RecyclerView               mCastRecyclerView;
+    private RecyclerView.Adapter       mCastAdapter;
+    private RecyclerView.LayoutManager mCastLayoutManager;
+
+    private RecyclerView mCrewRecyclerView;
+    private RecyclerView.Adapter mCrewAdapter;
+    private RecyclerView.LayoutManager mCrewLayoutManager;
+
 
     private ApiInterface mApiInterface;
 
@@ -47,10 +63,21 @@ public class MovieDetailsActivity extends AppCompatActivity {
         backDropImg = (ImageView) findViewById(R.id.movieBackDropImage);
         movieTagline = (TextView) findViewById(R.id.movieTaglineText);
         movieOverview = (TextView) findViewById(R.id.movieOverViewText);
+        movieReleaseDate = (TextView) findViewById(R.id.movieReleaseDate);
 
         movieDetailToolBar = (Toolbar) findViewById(R.id.movieDetailToolBar);
         setSupportActionBar(movieDetailToolBar);
         movieDetailCollapseToolBarLayout = (CollapsingToolbarLayout) findViewById(R.id.movieDetailCollapsingToolBar);
+
+        mCastRecyclerView = (RecyclerView) findViewById(R.id.movieCastRecView);
+        mCastRecyclerView.setHasFixedSize(true);
+        mCastLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        mCastRecyclerView.setLayoutManager(mCastLayoutManager);
+
+        mCrewRecyclerView = (RecyclerView) findViewById(R.id.movieCrewRecView);
+        mCrewRecyclerView.setHasFixedSize(true);
+        mCrewLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        mCrewRecyclerView.setLayoutManager(mCrewLayoutManager);
     }
 
 
@@ -69,7 +96,12 @@ public class MovieDetailsActivity extends AppCompatActivity {
                 movieDetailCollapseToolBarLayout.setTitle(movieDetails.getTitle());
                 movieTagline.setText((movieDetails.getTagline() != null) ? movieDetails.getTagline() : "");
                 movieOverview.setText((movieDetails.getOverview() != null) ? movieDetails.getOverview() : "");
+                movieReleaseDate.setText(formatReleaseDate(movieDetails.getReleaseDate()));
                 Picasso.with(getApplicationContext()).load(getBackdropImg(movieDetails.getBackdropPath())).into(backDropImg);
+                mCastAdapter = new CastRecyclerAdapter(getApplicationContext(), movieDetails.getMovieCredit().getCast());
+                mCastRecyclerView.setAdapter(mCastAdapter);
+                mCrewAdapter = new CrewRecyclerAdapter(getApplicationContext(), movieDetails.getMovieCredit().getCrew());
+                mCrewRecyclerView.setAdapter(mCrewAdapter);
             }
 
             @Override
@@ -78,6 +110,18 @@ public class MovieDetailsActivity extends AppCompatActivity {
                 if (call.isCanceled()) { Log.e(TAG, "CALL WAS CANCELLED"); }
             }
         });
+    }
+
+    public String formatReleaseDate(String d) {
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            Date date = sdf.parse(d);
+            sdf = new SimpleDateFormat("E, MMM d, yyyy");
+            return sdf.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return d;
     }
 
     public String getBackdropImg(String bd) {

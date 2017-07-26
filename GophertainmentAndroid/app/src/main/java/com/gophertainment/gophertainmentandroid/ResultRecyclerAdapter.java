@@ -119,11 +119,11 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
             this.ctx = context;
             this.mSearchResults = results;
             itemView.setOnClickListener(this);
-            PosterImg = (ImageView) itemView.findViewById(R.id.resultPosterImage);
-            MediaType = (ImageView) itemView.findViewById(R.id.resultMediaType);
-            Popularity = (TextView) itemView.findViewById(R.id.resultPopularityTV);
-            TitleName = (TextView) itemView.findViewById(R.id.resultTitleName);
-            FirstReleaseDate = (TextView) itemView.findViewById(R.id.resultReleaseDate);
+            this.PosterImg = (ImageView) itemView.findViewById(R.id.resultPosterImage);
+            this.MediaType = (ImageView) itemView.findViewById(R.id.resultMediaType);
+            this.Popularity = (TextView) itemView.findViewById(R.id.resultPopularityTV);
+            this.TitleName = (TextView) itemView.findViewById(R.id.resultTitleName);
+            this.FirstReleaseDate = (TextView) itemView.findViewById(R.id.resultReleaseDate);
         }
 
         @Override

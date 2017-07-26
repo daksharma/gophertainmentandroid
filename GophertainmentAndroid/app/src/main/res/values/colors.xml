@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Material Color -->
-    <color name="colorPrimary">#E64A19</color> <!-- Deep Orange -->
-    <color name="colorPrimaryDark">#bf360c</color> <!-- Deep Orange Darken 4 -->
+    <color name="colorPrimary">#E53935</color> <!-- Deep Orange -->
+    <color name="colorPrimaryDark">#D50000</color> <!-- Deep Orange Darken 4 -->
     <color name="colorAccent">#4DB6AC</color> <!-- Teal 300 -->
-    <color name="buttonColor">#f4511e</color> <!-- Deep Orange Darken 1 -->
+    <color name="buttonColor">#f4511e</color>
+    <color name="lightCardViewTextColor">#f0f0f0</color>
+    <color name="cardViewTextBGColor">#c8d50000</color> <!-- Deep Orange Darken 1 -->
 </resources>

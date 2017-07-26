@@ -14,6 +14,11 @@
     <string name="tvshowsearchid">tvshowsearchid</string>
     <string name="moviesearchid">moviesearchid</string>
 
+    <string name="crewText">Crew</string>
+    <string name="castText">Cast</string>
+
+    <string name="releaseDateText">Release Date</string>
+
 
 
     <string name="notAvail">N/A</string>

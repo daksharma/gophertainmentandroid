@@ -110,18 +110,121 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                    android:id="@+id/movieCastDetailCard"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/baseMargin"
+                    android:layout_marginRight="@dimen/baseMargin"
+                    android:layout_marginTop="@dimen/shortMargin"
+                    app:cardElevation="4dp"
+                    app:cardCornerRadius="2dp">
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                    <TextView
+                            android:text="@string/releaseDateText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="@dimen/shortMargin"
+                            android:layout_marginLeft="@dimen/baseMargin"
+                            android:layout_marginRight="@dimen/baseMargin"/>
+
+                    <TextView
+                            android:id="@+id/movieReleaseDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:layout_marginTop="@dimen/shortMargin"
+                            android:layout_marginBottom="@dimen/shortMargin"
+                            android:layout_marginRight="@dimen/baseMargin"
+                            android:layout_marginLeft="@dimen/baseMargin"
+                            android:layout_marginStart="@dimen/baseMargin"
+                            android:layout_marginEnd="@dimen/baseMargin"
+                            android:textAlignment="viewStart"/>
+                </LinearLayout>
+
 
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                    android:id="@+id/movieCrewDetailCard"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="300dp"
+                    android:layout_marginRight="@dimen/baseMargin"
+                    android:layout_marginLeft="@dimen/baseMargin"
+                    android:layout_marginTop="@dimen/shortMargin"
+                    android:layout_marginBottom="@dimen/shortMargin"
+                    app:cardElevation="4dp"
+                    app:cardCornerRadius="2dp">
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/shortMargin"
+                            android:layout_marginBottom="@dimen/shortMargin"
+                            android:layout_marginLeft="@dimen/baseMargin"
+                            android:layout_marginRight="@dimen/baseMargin"
+                            android:textSize="15sp"
+                            android:text="@string/castText"/>
+
+                    <android.support.v7.widget.RecyclerView
+                            android:id="@+id/movieCastRecView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:scrollbars="horizontal">
+                    </android.support.v7.widget.RecyclerView>
+                </LinearLayout>
 
             </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="@dimen/shortMargin"
+                    android:layout_marginRight="@dimen/baseMargin"
+                    android:layout_marginLeft="@dimen/baseMargin"
+                    android:layout_marginBottom="@dimen/shortMargin"
+                    app:cardElevation="4dp"
+                    app:cardCornerRadius="2dp">
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/shortMargin"
+                            android:layout_marginBottom="@dimen/shortMargin"
+                            android:layout_marginLeft="@dimen/baseMargin"
+                            android:layout_marginRight="@dimen/baseMargin"
+                            android:textSize="15sp"
+                            android:text="@string/crewText"/>
+
+                    <android.support.v7.widget.RecyclerView
+                            android:id="@+id/movieCrewRecView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:scrollbars="horizontal">
+
+                    </android.support.v7.widget.RecyclerView>
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v4.widget.Space
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"/>
+
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>

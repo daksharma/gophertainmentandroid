@@ -2,6 +2,8 @@
     <string name="app_name">GophertainmentAndroid</string>
     <string name="buttonSearch">Search</string>
     <string name="searchHint">Movies, shows, actors, directors...</string>
+
+
     <string name="titleText">Title</string>
     <string name="overviewText">Overview</string>
     <string name="taglineText">Tagline</string>
@@ -16,6 +18,9 @@
 
     <string name="crewText">Crew</string>
     <string name="castText">Cast</string>
+
+    <string name="seasonText">Seasons</string>
+    <string name="episodesText">Episodes</string>
 
     <string name="releaseDateText">Release Date</string>
 

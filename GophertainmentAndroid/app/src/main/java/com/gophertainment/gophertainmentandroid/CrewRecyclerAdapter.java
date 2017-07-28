@@ -19,7 +19,7 @@ import java.util.List;
 
 public class CrewRecyclerAdapter extends RecyclerView.Adapter<CrewRecyclerAdapter.CrewViewHolder> {
 
-    private List<Crew> mCrews;
+    List<Crew> mCrews;
     Context mContext;
 
 

@@ -3,8 +3,12 @@ package com.gophertainment.gophertainmentandroid;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,8 +30,21 @@ public class TvShowDetailsActivity extends AppCompatActivity {
 
     ImageView               tvshowBackdrop;
     TextView                tvshowOverView;
+    TextView                tvshowSeasons;
+    TextView                tvshowEpisodes;
     Toolbar                 tvshowToolBar;
     CollapsingToolbarLayout tvshowCollapseToolBarLayout;
+
+    private RecyclerView               mCastRecyclerView;
+    private RecyclerView.Adapter       mCastAdapter;
+    private RecyclerView.LayoutManager mCastLayoutManager;
+
+    private RecyclerView mCrewRecyclerView;
+    private RecyclerView.Adapter mCrewAdapter;
+    private RecyclerView.LayoutManager mCrewLayoutManager;
+
+    private CardView tvshowCastCardView;
+    private CardView tvshowCrewCardView;
 
     private ApiInterface mApiInterface;
 
@@ -37,16 +54,31 @@ public class TvShowDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tv_show_details);
         setUpTvShowUI();
         String tvShowId = getApplicationContext().getString(R.string.tvShowId);
-        int tvShowID = getIntent().getIntExtra(tvShowId, 0);
+        int    tvShowID = getIntent().getIntExtra(tvShowId, 0);
         getTvShowDetails(tvShowID);
     }
 
     public void setUpTvShowUI() {
         tvshowBackdrop = (ImageView) findViewById(R.id.tvshowBackdrop);
         tvshowOverView = (TextView) findViewById(R.id.tvShowOverView);
+        tvshowSeasons = (TextView) findViewById(R.id.numberOfSeasons);
+        tvshowEpisodes = (TextView) findViewById(R.id.numberOfEpisodes);
         tvshowToolBar = (Toolbar) findViewById(R.id.tvshowToolBar);
         setSupportActionBar(tvshowToolBar);
         tvshowCollapseToolBarLayout = (CollapsingToolbarLayout) findViewById(R.id.tvshowCollapsingToolBar);
+
+        tvshowCastCardView = (CardView) findViewById(R.id.tvshowCastCardView);
+        tvshowCrewCardView = (CardView) findViewById(R.id.tvshowCrewCardView);
+
+        mCastRecyclerView = (RecyclerView) findViewById(R.id.tvshowCastRevView);
+        mCastRecyclerView.setHasFixedSize(true);
+        mCastLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        mCastRecyclerView.setLayoutManager(mCastLayoutManager);
+
+        mCrewRecyclerView = (RecyclerView) findViewById(R.id.tvshowCrewRecView);
+        mCrewRecyclerView.setHasFixedSize(true);
+        mCrewLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        mCrewRecyclerView.setLayoutManager(mCrewLayoutManager);
 
     }
 
@@ -64,13 +96,29 @@ public class TvShowDetailsActivity extends AppCompatActivity {
                 TvShow tvShow = response.body();
                 tvshowCollapseToolBarLayout.setTitle(tvShow.getName());
                 tvshowOverView.setText(tvShow.getOverview());
+                tvshowSeasons.setText(tvShow.getNumberOfSeasons().toString());
+                tvshowEpisodes.setText(tvShow.getNumberOfEpisodes().toString());
                 Picasso.with(getApplicationContext()).load(getBackdropImg(tvShow.getBackdropPath())).into(tvshowBackdrop);
+                if (tvShow.getCredits().getCast() != null) {
+                    mCastAdapter = new CastRecyclerAdapter(getApplicationContext(), tvShow.getCredits().getCast());
+                    mCastRecyclerView.setAdapter(mCastAdapter);
+                } else {
+                    tvshowCastCardView.setVisibility(View.GONE);
+                }
+                if (tvShow.getCredits().getCrew() != null) {
+                    mCrewAdapter = new CrewRecyclerAdapter(getApplicationContext(), tvShow.getCredits().getCrew());
+                    mCrewRecyclerView.setAdapter(mCrewAdapter);
+                } else {
+                    tvshowCrewCardView.setVisibility(View.GONE);
+                }
             }
 
             @Override
             public void onFailure(Call<TvShow> call, Throwable t) {
                 Log.e(TAG, "ERROR: " + t.toString());
-                if (call.isCanceled()) { Log.e(TAG, "CALL WAS CANCELLED"); }
+                if (call.isCanceled()) {
+                    Log.e(TAG, "CALL WAS CANCELLED");
+                }
             }
         });
     }

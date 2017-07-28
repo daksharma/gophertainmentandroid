@@ -52,42 +52,219 @@
             android:layout_gravity="fill_vertical"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <android.support.v7.widget.CardView
+        <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/baseMargin"
-                android:layout_marginRight="@dimen/baseMargin"
-                android:layout_marginTop="@dimen/shortMargin">
+                android:orientation="vertical">
 
-            <LinearLayout
+            <!-- OVERVIEW TEXT -->
+            <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-                <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/overviewText"
-                        android:textSize="12sp"
-                        android:gravity="center_vertical"
-                        android:layout_marginTop="@dimen/shortMargin"
-                        android:layout_marginLeft="@dimen/baseMargin"
-                        android:layout_marginRight="@dimen/baseMargin"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/baseMargin"
+                    android:layout_marginLeft="@dimen/baseMargin"
+                    android:layout_marginTop="@dimen/shortMargin"
+                    android:layout_marginBottom="@dimen/shortMargin"
+                    app:cardElevation="4dp"
+                    app:cardCornerRadius="2dp">
 
-                <TextView
-                        android:id="@+id/tvShowOverView"
+                <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:layout_marginTop="@dimen/shortMargin"
-                        android:layout_marginBottom="@dimen/shortMargin"
-                        android:layout_marginRight="@dimen/baseMargin"
-                        android:layout_marginLeft="@dimen/baseMargin"
-                        android:layout_marginStart="@dimen/baseMargin"
-                        android:layout_marginEnd="@dimen/baseMargin"
-                        android:textAlignment="viewStart"/>
-            </LinearLayout>
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/overviewText"
+                            android:textSize="12sp"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="@dimen/shortMargin"
+                            android:layout_marginLeft="@dimen/baseMargin"
+                            android:layout_marginRight="@dimen/baseMargin"/>
 
-        </android.support.v7.widget.CardView>
+                    <TextView
+                            android:id="@+id/tvShowOverView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:layout_marginTop="@dimen/shortMargin"
+                            android:layout_marginBottom="@dimen/shortMargin"
+                            android:layout_marginRight="@dimen/baseMargin"
+                            android:layout_marginLeft="@dimen/baseMargin"
+                            android:layout_marginStart="@dimen/baseMargin"
+                            android:layout_marginEnd="@dimen/baseMargin"
+                            android:textAlignment="viewStart"/>
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+            <!-- SEASON EPISODE TEXT -->
+            <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/baseMargin"
+                    android:layout_marginLeft="@dimen/baseMargin"
+                    android:layout_marginTop="@dimen/shortMargin"
+                    android:layout_marginBottom="@dimen/shortMargin"
+                    app:cardElevation="4dp"
+                    app:cardCornerRadius="2dp">
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                        <TextView
+                                android:text="@string/seasonText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:textSize="12sp"
+                                android:gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/baseMargin"
+                                android:layout_marginRight="@dimen/baseMargin"/>
+
+                        <TextView
+                                android:id="@+id/numberOfSeasons"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:textSize="18sp"
+                                android:gravity="center_vertical"
+                                android:layout_marginTop="@dimen/shortMargin"
+                                android:layout_marginBottom="@dimen/shortMargin"
+                                android:layout_marginRight="@dimen/baseMargin"
+                                android:layout_marginLeft="@dimen/baseMargin"
+                                android:layout_marginStart="@dimen/baseMargin"
+                                android:layout_marginEnd="@dimen/baseMargin"/>
+
+                        <TextView
+                                android:text="@string/episodesText"
+                                android:textSize="12sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/baseMargin"
+                                android:layout_marginRight="@dimen/baseMargin"/>
+
+                        <TextView
+                                android:id="@+id/numberOfEpisodes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:textSize="18sp"
+                                android:gravity="center_vertical"
+                                android:layout_marginTop="@dimen/shortMargin"
+                                android:layout_marginBottom="@dimen/shortMargin"
+                                android:layout_marginRight="@dimen/baseMargin"
+                                android:layout_marginLeft="@dimen/baseMargin"
+                                android:layout_marginStart="@dimen/baseMargin"
+                                android:layout_marginEnd="@dimen/baseMargin"/>
+                    </LinearLayout>
+
+                    <android.support.v7.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/baseMargin"
+                            android:layout_marginLeft="@dimen/baseMargin"
+                            android:layout_marginTop="@dimen/shortMargin"
+                            android:layout_marginBottom="@dimen/shortMargin"
+                            app:cardElevation="4dp"
+                            app:cardCornerRadius="2dp">
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- CAST CARD VIEW -->
+            <android.support.v7.widget.CardView
+                    android:id="@+id/tvshowCastCardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/baseMargin"
+                    android:layout_marginLeft="@dimen/baseMargin"
+                    android:layout_marginTop="@dimen/shortMargin"
+                    android:layout_marginBottom="@dimen/shortMargin"
+                    app:cardElevation="4dp"
+                    app:cardCornerRadius="2dp">
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/castText"
+                            android:textSize="12sp"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="@dimen/shortMargin"
+                            android:layout_marginBottom="@dimen/shortMargin"
+                            android:layout_marginLeft="@dimen/baseMargin"
+                            android:layout_marginRight="@dimen/baseMargin"/>
+
+                    <android.support.v7.widget.RecyclerView
+                            android:id="@+id/tvshowCastRevView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:scrollbars="horizontal">
+
+                    </android.support.v7.widget.RecyclerView>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- CREW CARD VIEW -->
+            <android.support.v7.widget.CardView
+                    android:id="@+id/tvshowCrewCardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/baseMargin"
+                    android:layout_marginLeft="@dimen/baseMargin"
+                    android:layout_marginTop="@dimen/shortMargin"
+                    android:layout_marginBottom="@dimen/shortMargin"
+                    app:cardElevation="4dp"
+                    app:cardCornerRadius="2dp">
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/crewText"
+                            android:textSize="12sp"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="@dimen/shortMargin"
+                            android:layout_marginLeft="@dimen/baseMargin"
+                            android:layout_marginRight="@dimen/baseMargin"
+                            android:layout_marginBottom="@dimen/shortMargin"/>
+
+                    <android.support.v7.widget.RecyclerView
+                            android:id="@+id/tvshowCrewRecView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:scrollbars="horizontal">
+
+                    </android.support.v7.widget.RecyclerView>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v4.widget.Space
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"/>
+
+        </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
 

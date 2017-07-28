@@ -3,10 +3,12 @@ package com.gophertainment.gophertainmentandroid;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -28,14 +30,14 @@ import retrofit2.Response;
 public class MovieDetailsActivity extends AppCompatActivity {
     private final static String TAG = MovieDetailsActivity.class.getSimpleName();
 
-    ImageView backDropImg;
-    TextView movieTagline;
-    TextView movieOverview;
-    TextView movieReleaseDate;
+    private ImageView backDropImg;
+    private TextView movieTagline;
+    private TextView movieOverview;
+    private TextView movieReleaseDate;
 
 
-    Toolbar                 movieDetailToolBar;
-    CollapsingToolbarLayout movieDetailCollapseToolBarLayout;
+    private Toolbar                 movieDetailToolBar;
+    private CollapsingToolbarLayout movieDetailCollapseToolBarLayout;
 
     private RecyclerView               mCastRecyclerView;
     private RecyclerView.Adapter       mCastAdapter;
@@ -45,6 +47,8 @@ public class MovieDetailsActivity extends AppCompatActivity {
     private RecyclerView.Adapter mCrewAdapter;
     private RecyclerView.LayoutManager mCrewLayoutManager;
 
+    private CardView movieCastCardView;
+    private CardView movieCrewCardView;
 
     private ApiInterface mApiInterface;
 
@@ -64,6 +68,9 @@ public class MovieDetailsActivity extends AppCompatActivity {
         movieTagline = (TextView) findViewById(R.id.movieTaglineText);
         movieOverview = (TextView) findViewById(R.id.movieOverViewText);
         movieReleaseDate = (TextView) findViewById(R.id.movieReleaseDate);
+
+        movieCastCardView = (CardView) findViewById(R.id.movieCastCardView);
+        movieCrewCardView = (CardView) findViewById(R.id.movieCrewCardView);
 
         movieDetailToolBar = (Toolbar) findViewById(R.id.movieDetailToolBar);
         setSupportActionBar(movieDetailToolBar);
@@ -98,10 +105,18 @@ public class MovieDetailsActivity extends AppCompatActivity {
                 movieOverview.setText((movieDetails.getOverview() != null) ? movieDetails.getOverview() : "");
                 movieReleaseDate.setText(formatReleaseDate(movieDetails.getReleaseDate()));
                 Picasso.with(getApplicationContext()).load(getBackdropImg(movieDetails.getBackdropPath())).into(backDropImg);
-                mCastAdapter = new CastRecyclerAdapter(getApplicationContext(), movieDetails.getMovieCredit().getCast());
-                mCastRecyclerView.setAdapter(mCastAdapter);
-                mCrewAdapter = new CrewRecyclerAdapter(getApplicationContext(), movieDetails.getMovieCredit().getCrew());
-                mCrewRecyclerView.setAdapter(mCrewAdapter);
+                if (movieDetails.getMovieCredit().getCast() != null) {
+                    mCastAdapter = new CastRecyclerAdapter(getApplicationContext(), movieDetails.getMovieCredit().getCast());
+                    mCastRecyclerView.setAdapter(mCastAdapter);
+                } else {
+                    movieCastCardView.setVisibility(View.GONE);
+                }
+                if (movieDetails.getMovieCredit().getCrew() != null) {
+                    mCrewAdapter = new CrewRecyclerAdapter(getApplicationContext(), movieDetails.getMovieCredit().getCrew());
+                    mCrewRecyclerView.setAdapter(mCrewAdapter);
+                } else {
+                    movieCrewCardView.setVisibility(View.GONE);
+                }
             }
 
             @Override

@@ -7,6 +7,10 @@
     <string name="titleText">Title</string>
     <string name="overviewText">Overview</string>
     <string name="taglineText">Tagline</string>
+    <string name="biographyText">Biography</string>
+    <string name="birthdayText">Birthday</string>
+    <string name="deathdayText">Died On</string>
+    <string name="birthAndPlaceText">Birthday / Place</string>
 
     <string name="tvShowId">tvShowId</string>
     <string name="movieId">movieId</string>
@@ -15,9 +19,14 @@
     <string name="userSearchString">usersearchstring</string>
     <string name="tvshowsearchid">tvshowsearchid</string>
     <string name="moviesearchid">moviesearchid</string>
+    <string name="personsearchid">personsearchid</string>
 
     <string name="crewText">Crew</string>
     <string name="castText">Cast</string>
+
+    <string name="actingText">Acting</string>
+    <string name="behindTheScreenText">Behind the screen</string>
+
 
     <string name="seasonText">Seasons</string>
     <string name="episodesText">Episodes</string>

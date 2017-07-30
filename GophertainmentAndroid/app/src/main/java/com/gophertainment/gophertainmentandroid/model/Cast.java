@@ -28,6 +28,10 @@ public class Cast {
     @Expose
     private String Name;
 
+    @SerializedName("title")
+    @Expose
+    private String Title;
+
     @SerializedName("order")
     @Expose
     private int Order;
@@ -35,6 +39,10 @@ public class Cast {
     @SerializedName("profile_path")
     @Expose
     private String ProfilePath;
+
+    @SerializedName("poster_path")
+    @Expose
+    private String PosterPath;
 
 
     public int getCastId() {
@@ -77,6 +85,10 @@ public class Cast {
         Name = name;
     }
 
+    public String getTitle() { return Title; }
+
+    public void setTitle(String title) { this.Title = title; }
+
     public int getOrder() {
         return Order;
     }
@@ -92,4 +104,8 @@ public class Cast {
     public void setProfilePath(String profilePath) {
         ProfilePath = profilePath;
     }
+
+    public String getPosterPath() { return PosterPath; }
+
+    public void setPosterPath(String posterPath) { this.PosterPath = posterPath; }
 }

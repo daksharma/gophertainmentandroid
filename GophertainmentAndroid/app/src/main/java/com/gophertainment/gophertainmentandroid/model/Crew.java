@@ -32,9 +32,17 @@ public class Crew {
     @Expose
     private String Name;
 
+    @SerializedName("title")
+    @Expose
+    private String Title;
+
     @SerializedName("profile_path")
     @Expose
     private String ProfilePath;
+
+    @SerializedName("poster_path")
+    @Expose
+    private String PosterPath;
 
 
     public int getID() {
@@ -85,6 +93,10 @@ public class Crew {
         Name = name;
     }
 
+    public String getTitle() { return Title; }
+
+    public void setTitle(String title) { this.Title = title; }
+
     public String getProfilePath() {
         return ProfilePath;
     }
@@ -92,5 +104,9 @@ public class Crew {
     public void setProfilePath(String profilePath) {
         ProfilePath = profilePath;
     }
+
+    public String getPosterPath() { return PosterPath; }
+
+    public void setPosterPath(String posterPath) { this.PosterPath = posterPath; }
 }
 

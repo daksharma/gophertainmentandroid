@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/baseImgTitleCardView"
+        android:layout_width="190dp"
+        android:layout_height="270dp"
+        android:layout_marginRight="@dimen/shortMargin">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <ImageView
+                android:id="@+id/baseCardViewImg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="vertical"
+                android:layout_alignParentBottom="true"
+                android:background="@color/cardViewTextBGColor">
+
+            <TextView
+                    android:id="@+id/baseCardTitleName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:layout_marginTop="@dimen/shortMargin"
+                    android:layout_marginLeft="@dimen/baseMargin"
+                    android:layout_marginRight="@dimen/baseMargin"
+                    android:textSize="15sp"/>
+
+            <TextView
+                    android:id="@+id/baseCardJobPositionDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/baseMargin"
+                    android:layout_marginRight="@dimen/baseMargin"
+                    android:layout_marginTop="@dimen/shortMargin"
+                    android:layout_marginBottom="@dimen/shortMargin"
+                    android:textColor="@color/lightCardViewTextColor"
+                    android:textSize="12sp"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

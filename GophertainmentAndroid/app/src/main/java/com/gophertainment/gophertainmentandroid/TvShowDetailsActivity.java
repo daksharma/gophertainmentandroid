@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.gophertainment.gophertainmentandroid.helper.BaseImgTitleCardViewAdapter;
 import com.gophertainment.gophertainmentandroid.model.TvShow;
 import com.gophertainment.gophertainmentandroid.network.ApiInterface;
 import com.gophertainment.gophertainmentandroid.network.GopherApi;
@@ -43,6 +44,10 @@ public class TvShowDetailsActivity extends AppCompatActivity {
     private RecyclerView.Adapter mCrewAdapter;
     private RecyclerView.LayoutManager mCrewLayoutManager;
 
+    private RecyclerView mSeasonRecyclerView;
+    private RecyclerView.Adapter mSeasonAdapter;
+    private RecyclerView.LayoutManager mSeasonLayoutManager;
+
     private CardView tvshowCastCardView;
     private CardView tvshowCrewCardView;
 
@@ -69,6 +74,11 @@ public class TvShowDetailsActivity extends AppCompatActivity {
 
         tvshowCastCardView = (CardView) findViewById(R.id.tvshowCastCardView);
         tvshowCrewCardView = (CardView) findViewById(R.id.tvshowCrewCardView);
+
+        mSeasonRecyclerView = (RecyclerView) findViewById(R.id.tvshowSeasonRecView);
+        mSeasonRecyclerView.setHasFixedSize(true);
+        mSeasonLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        mSeasonRecyclerView.setLayoutManager(mSeasonLayoutManager);
 
         mCastRecyclerView = (RecyclerView) findViewById(R.id.tvshowCastRevView);
         mCastRecyclerView.setHasFixedSize(true);
@@ -99,14 +109,22 @@ public class TvShowDetailsActivity extends AppCompatActivity {
                 tvshowSeasons.setText(tvShow.getNumberOfSeasons().toString());
                 tvshowEpisodes.setText(tvShow.getNumberOfEpisodes().toString());
                 Picasso.with(getApplicationContext()).load(getBackdropImg(tvShow.getBackdropPath())).into(tvshowBackdrop);
+
+                if (tvShow.getSeasons() != null) {
+                    mSeasonAdapter = new BaseImgTitleCardViewAdapter(getApplicationContext(), null, null, tvShow.getSeasons());
+                    mSeasonRecyclerView.setAdapter(mSeasonAdapter);
+                } else {
+                    mSeasonRecyclerView.setVisibility(View.GONE);
+                }
+
                 if (tvShow.getCredits().getCast() != null) {
-                    mCastAdapter = new CastRecyclerAdapter(getApplicationContext(), tvShow.getCredits().getCast());
+                    mCastAdapter = new BaseImgTitleCardViewAdapter(getApplicationContext(), tvShow.getCredits().getCast(), null, null);
                     mCastRecyclerView.setAdapter(mCastAdapter);
                 } else {
                     tvshowCastCardView.setVisibility(View.GONE);
                 }
                 if (tvShow.getCredits().getCrew() != null) {
-                    mCrewAdapter = new CrewRecyclerAdapter(getApplicationContext(), tvShow.getCredits().getCrew());
+                    mCrewAdapter = new BaseImgTitleCardViewAdapter(getApplicationContext(), null, tvShow.getCredits().getCrew(), null);
                     mCrewRecyclerView.setAdapter(mCrewAdapter);
                 } else {
                     tvshowCrewCardView.setVisibility(View.GONE);

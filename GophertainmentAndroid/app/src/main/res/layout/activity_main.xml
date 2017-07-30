@@ -5,6 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/baseMargin"
         tools:context="com.gophertainment.gophertainmentandroid.MainActivity">
 
     <EditText
@@ -42,7 +43,7 @@
 
     <android.support.v7.widget.RecyclerView
             android:id="@+id/resultRecView"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"

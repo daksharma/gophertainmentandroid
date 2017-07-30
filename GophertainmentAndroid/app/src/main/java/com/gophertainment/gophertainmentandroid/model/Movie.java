@@ -3,6 +3,10 @@ package com.gophertainment.gophertainmentandroid.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by dakshsharma on 7/20/17.
  */
@@ -140,6 +144,22 @@ public class Movie {
 
     public void setMovieCredit(Credits movieCredit) {
         MovieCredit = movieCredit;
+    }
+
+    // HELPERs
+    public String getFormattedReleaseDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date              date;
+        try {
+            if (ReleaseDate != null)  {
+                date = sdf.parse(ReleaseDate);
+                sdf = new SimpleDateFormat("E, MMM d, yyyy");
+                return sdf.format(date);
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return "--";
     }
 }
 

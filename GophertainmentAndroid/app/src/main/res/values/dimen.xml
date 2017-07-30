@@ -5,4 +5,10 @@
     <dimen name="buttonHeight">36dp</dimen>
     <dimen name="editTextSize">15sp</dimen>
     <dimen name="baseTextSize">15sp</dimen>
+
+    <dimen name="descriptionText">12sp</dimen>
+    <dimen name="dataDescriptionText">18sp</dimen>
+
+    <dimen name="baseCardElevation">4dp</dimen>
+    <dimen name="baseCardCornerRadius">2dp</dimen>
 </resources>

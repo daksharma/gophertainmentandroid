@@ -2,6 +2,7 @@ package com.gophertainment.gophertainmentandroid.network;
 
 import com.gophertainment.gophertainmentandroid.model.JsonResult;
 import com.gophertainment.gophertainmentandroid.model.Movie;
+import com.gophertainment.gophertainmentandroid.model.Person;
 import com.gophertainment.gophertainmentandroid.model.TvShow;
 
 import java.util.Map;
@@ -25,12 +26,15 @@ public interface ApiInterface {
 
 
     @POST("search")
-    Call<JsonResult> getMultiSearchResult(@QueryMap Map<String,String> usersearchstring);
+    Call<JsonResult> getMultiSearchResult(@QueryMap Map<String, String> usersearchstring);
 
     @POST("movie")
     Call<Movie> getMovieDetails(@QueryMap Map<String, Integer> moviesearchid);
 
     @POST("tvshow")
     Call<TvShow> getTvShowDetails(@QueryMap Map<String, Integer> tvshowsearchid);
+
+    @POST("person")
+    Call<Person> getPersonDetails(@QueryMap Map<String, Integer> personsearchid);
 
 }

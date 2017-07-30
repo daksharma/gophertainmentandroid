@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.gophertainment.gophertainmentandroid.helper.BaseImgTitleCardViewAdapter;
 import com.gophertainment.gophertainmentandroid.model.Movie;
 import com.gophertainment.gophertainmentandroid.network.ApiInterface;
 import com.gophertainment.gophertainmentandroid.network.GopherApi;
@@ -103,16 +104,16 @@ public class MovieDetailsActivity extends AppCompatActivity {
                 movieDetailCollapseToolBarLayout.setTitle(movieDetails.getTitle());
                 movieTagline.setText((movieDetails.getTagline() != null) ? movieDetails.getTagline() : "");
                 movieOverview.setText((movieDetails.getOverview() != null) ? movieDetails.getOverview() : "");
-                movieReleaseDate.setText(formatReleaseDate(movieDetails.getReleaseDate()));
+                movieReleaseDate.setText(movieDetails.getFormattedReleaseDate());
                 Picasso.with(getApplicationContext()).load(getBackdropImg(movieDetails.getBackdropPath())).into(backDropImg);
                 if (movieDetails.getMovieCredit().getCast() != null) {
-                    mCastAdapter = new CastRecyclerAdapter(getApplicationContext(), movieDetails.getMovieCredit().getCast());
+                    mCastAdapter = new BaseImgTitleCardViewAdapter(getApplicationContext(), movieDetails.getMovieCredit().getCast(), null, null);
                     mCastRecyclerView.setAdapter(mCastAdapter);
                 } else {
                     movieCastCardView.setVisibility(View.GONE);
                 }
                 if (movieDetails.getMovieCredit().getCrew() != null) {
-                    mCrewAdapter = new CrewRecyclerAdapter(getApplicationContext(), movieDetails.getMovieCredit().getCrew());
+                    mCrewAdapter = new BaseImgTitleCardViewAdapter(getApplicationContext(), null, movieDetails.getMovieCredit().getCrew(), null);
                     mCrewRecyclerView.setAdapter(mCrewAdapter);
                 } else {
                     movieCrewCardView.setVisibility(View.GONE);

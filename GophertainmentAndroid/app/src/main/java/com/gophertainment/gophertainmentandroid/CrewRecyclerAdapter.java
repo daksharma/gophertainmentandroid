@@ -29,7 +29,7 @@ public class CrewRecyclerAdapter extends RecyclerView.Adapter<CrewRecyclerAdapte
     }
 
     @Override
-    public CrewRecyclerAdapter.CrewViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public CrewViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View           view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cast_crew_cardview, parent, false);
         CrewViewHolder cvh = new CrewViewHolder(view, mContext, mCrews);
         return cvh;

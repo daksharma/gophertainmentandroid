@@ -34,20 +34,20 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
 
     @Override
     public ResultViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recview_rowitem,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.result_card_view,parent,false);
         ResultViewHolder rvh = new ResultViewHolder(view, mContext, results);
         return rvh;
     }
 
     @Override
     public void onBindViewHolder(ResultViewHolder holder, int position) {
-        holder.TitleName.setText(getResultTitleOrName(position));
-        holder.MediaType.setImageResource(getResulMediaType(position));
+        holder.TitleName.setText(results.get(position).getTitleOrName());
+        holder.MediaType.setImageResource(getResulMediaType(results.get(position).getMediaType()));
 
         //TODO: fix popularity text size in xml
         holder.Popularity.setText(String.format("%.1f",results.get(position).getPopularity()));
 
-        holder.FirstReleaseDate.setText(firstReleaseDate(position));
+//        holder.FirstReleaseDate.setText(firstReleaseDate(position));
         Picasso.with(mContext).load(getPosterImageUrl(position)).into(holder.PosterImg);
 
     }
@@ -70,22 +70,10 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
     }
 
 
-    public String getResultTitleOrName(int position) {
-        String movieTvActorName;
-        if (results.get(position).getTitle() != null) {
-            movieTvActorName = results.get(position).getTitle();
-        } else if (results.get(position).getName() != null) {
-            movieTvActorName = results.get(position).getName();
-        } else {
-            movieTvActorName = "N/A";
-        }
-        return movieTvActorName;
-    }
-
-    public int getResulMediaType(int position) {
-        if (results.get(position).getMediaType().equalsIgnoreCase("movie")) {
+    public int getResulMediaType(String mediaType) {
+        if (mediaType.equalsIgnoreCase("movie")) {
             return R.drawable.ic_movie_color_icon;
-        } else if (results.get(position).getMediaType().equalsIgnoreCase("tv")) {
+        } else if (mediaType.equalsIgnoreCase("tv")) {
             return R.drawable.ic_tvshow_color_icon;
         } else {
             return R.drawable.ic_profile_color_icon;
@@ -119,10 +107,10 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
             this.ctx = context;
             this.mSearchResults = results;
             itemView.setOnClickListener(this);
-            this.PosterImg = (ImageView) itemView.findViewById(R.id.resultPosterImage);
+            this.PosterImg = (ImageView) itemView.findViewById(R.id.resultCVImage);
             this.MediaType = (ImageView) itemView.findViewById(R.id.resultMediaType);
-            this.Popularity = (TextView) itemView.findViewById(R.id.resultPopularityTV);
-            this.TitleName = (TextView) itemView.findViewById(R.id.resultTitleName);
+            this.Popularity = (TextView) itemView.findViewById(R.id.resultRatingNumber);
+            this.TitleName = (TextView) itemView.findViewById(R.id.resultNameTitleTV);
             this.FirstReleaseDate = (TextView) itemView.findViewById(R.id.resultReleaseDate);
         }
 
@@ -140,6 +128,10 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
                 intent.putExtra(this.ctx.getString(R.string.tvShowId), res.getID());
                 this.ctx.startActivity(intent);
             } else {
+                intent = new Intent(this.ctx, PersonDetailActivity.class);
+                intent.putExtra(this.ctx.getString(R.string.personId), res.getID());
+                intent.putExtra("personName", res.getName());
+                this.ctx.startActivity(intent);
             }
         }
     }

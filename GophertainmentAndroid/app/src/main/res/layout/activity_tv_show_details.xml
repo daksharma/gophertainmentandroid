@@ -103,17 +103,21 @@
             <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/baseMargin"
+                    app:cardCornerRadius="@dimen/baseCardCornerRadius"
+                    android:elevation="@dimen/baseCardElevation"
                     android:layout_marginLeft="@dimen/baseMargin"
+                    android:layout_marginRight="@dimen/baseMargin"
                     android:layout_marginTop="@dimen/shortMargin"
-                    android:layout_marginBottom="@dimen/shortMargin"
-                    app:cardElevation="4dp"
-                    app:cardCornerRadius="2dp">
+                    android:layout_marginBottom="@dimen/shortMargin">
 
                 <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:layout_marginLeft="@dimen/baseMargin"
+                        android:layout_marginRight="@dimen/baseMargin"
+                        android:layout_marginTop="@dimen/shortMargin"
+                        android:layout_marginBottom="@dimen/shortMargin">
 
                     <LinearLayout
                             android:layout_width="match_parent"
@@ -126,7 +130,6 @@
                                 android:layout_height="match_parent"
                                 android:textSize="12sp"
                                 android:gravity="center_vertical"
-                                android:layout_marginLeft="@dimen/baseMargin"
                                 android:layout_marginRight="@dimen/baseMargin"/>
 
                         <TextView
@@ -157,18 +160,15 @@
                                 android:layout_height="match_parent"
                                 android:textSize="18sp"
                                 android:gravity="center_vertical"
-                                android:layout_marginTop="@dimen/shortMargin"
-                                android:layout_marginBottom="@dimen/shortMargin"
                                 android:layout_marginRight="@dimen/baseMargin"
-                                android:layout_marginLeft="@dimen/baseMargin"
-                                android:layout_marginStart="@dimen/baseMargin"
-                                android:layout_marginEnd="@dimen/baseMargin"/>
+                                android:layout_marginLeft="@dimen/baseMargin"/>
                     </LinearLayout>
 
                     <android.support.v7.widget.RecyclerView
                             android:id="@+id/tvshowSeasonRecView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/shortMargin"
                             android:scrollbars="horizontal">
 
                     </android.support.v7.widget.RecyclerView>
@@ -182,17 +182,21 @@
                     android:id="@+id/tvshowCastCardView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/baseMargin"
+                    app:cardCornerRadius="@dimen/baseCardCornerRadius"
+                    android:elevation="@dimen/baseCardElevation"
                     android:layout_marginLeft="@dimen/baseMargin"
+                    android:layout_marginRight="@dimen/baseMargin"
                     android:layout_marginTop="@dimen/shortMargin"
-                    android:layout_marginBottom="@dimen/shortMargin"
-                    app:cardElevation="4dp"
-                    app:cardCornerRadius="2dp">
+                    android:layout_marginBottom="@dimen/shortMargin">
 
                 <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:layout_marginLeft="@dimen/baseMargin"
+                        android:layout_marginRight="@dimen/baseMargin"
+                        android:layout_marginTop="@dimen/shortMargin"
+                        android:layout_marginBottom="@dimen/shortMargin">
 
                     <TextView
                             android:layout_width="wrap_content"
@@ -200,16 +204,14 @@
                             android:text="@string/castText"
                             android:textSize="12sp"
                             android:gravity="center_vertical"
-                            android:layout_marginTop="@dimen/shortMargin"
-                            android:layout_marginBottom="@dimen/shortMargin"
-                            android:layout_marginLeft="@dimen/baseMargin"
-                            android:layout_marginRight="@dimen/baseMargin"/>
+                            />
 
                     <android.support.v7.widget.RecyclerView
                             android:id="@+id/tvshowCastRevView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:scrollbars="horizontal">
+                            android:scrollbars="horizontal"
+                            android:layout_marginTop="@dimen/shortMargin">
 
                     </android.support.v7.widget.RecyclerView>
 
@@ -222,34 +224,35 @@
                     android:id="@+id/tvshowCrewCardView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/baseMargin"
+                    app:cardCornerRadius="@dimen/baseCardCornerRadius"
+                    android:elevation="@dimen/baseCardElevation"
                     android:layout_marginLeft="@dimen/baseMargin"
+                    android:layout_marginRight="@dimen/baseMargin"
                     android:layout_marginTop="@dimen/shortMargin"
-                    android:layout_marginBottom="@dimen/shortMargin"
-                    app:cardElevation="4dp"
-                    app:cardCornerRadius="2dp">
+                    android:layout_marginBottom="@dimen/shortMargin">
 
                 <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:layout_marginLeft="@dimen/baseMargin"
+                        android:layout_marginRight="@dimen/baseMargin"
+                        android:layout_marginTop="@dimen/shortMargin"
+                        android:layout_marginBottom="@dimen/shortMargin">
 
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/crewText"
                             android:textSize="12sp"
-                            android:gravity="center_vertical"
-                            android:layout_marginTop="@dimen/shortMargin"
-                            android:layout_marginLeft="@dimen/baseMargin"
-                            android:layout_marginRight="@dimen/baseMargin"
-                            android:layout_marginBottom="@dimen/shortMargin"/>
+                            android:gravity="center_vertical"/>
 
                     <android.support.v7.widget.RecyclerView
                             android:id="@+id/tvshowCrewRecView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:scrollbars="horizontal">
+                            android:scrollbars="horizontal"
+                            android:layout_marginTop="@dimen/shortMargin">
 
                     </android.support.v7.widget.RecyclerView>
 

@@ -93,6 +93,7 @@
 
             </android.support.v7.widget.CardView>
 
+            <!-- BIRTHDAY AND PLACE CARD -->
             <android.support.v7.widget.CardView
                     android:id="@+id/personBirthAndPlaceCardView"
                     android:layout_width="match_parent"
@@ -136,6 +137,7 @@
 
             </android.support.v7.widget.CardView>
 
+            <!-- ACTING CAREER CARD -->
             <android.support.v7.widget.CardView
                     android:id="@+id/personActingCardView"
                     android:layout_width="match_parent"
@@ -167,6 +169,7 @@
                             android:id="@+id/personActingCareerRecView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/shortMargin"
                             android:scrollbars="horizontal">
 
                     </android.support.v7.widget.RecyclerView>
@@ -176,6 +179,7 @@
 
             </android.support.v7.widget.CardView>
 
+            <!-- BEHIND THE SCENE CAREER CARD -->
             <android.support.v7.widget.CardView
                     android:id="@+id/personBehindSceneCardView"
                     android:layout_width="match_parent"

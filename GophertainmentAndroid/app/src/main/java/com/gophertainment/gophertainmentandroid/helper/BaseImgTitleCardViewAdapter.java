@@ -20,15 +20,17 @@ import java.util.List;
  * Created by dakshsharma on 7/29/17.
  */
 
-public class BaseImgTitleCardViewAdapter extends RecyclerView.Adapter<BaseImgTitleCardViewAdapter.BaseImgTitleCardViewHolder> {
+public class BaseImgTitleCardViewAdapter extends RecyclerView.Adapter<BaseImgTitleCardViewAdapter
+        .BaseImgTitleCardViewHolder> {
 
     Context context;
 
-    private List<Cast> casts;
-    private List<Crew> crew;
+    private List<Cast>       casts;
+    private List<Crew>       crew;
     private List<ShowSeason> showSeasons;
 
-    public BaseImgTitleCardViewAdapter(Context context, List<Cast> casts, List<Crew> crew, List<ShowSeason> showSeasons) {
+    public BaseImgTitleCardViewAdapter(Context context, List<Cast> casts, List<Crew> crew, List<ShowSeason>
+            showSeasons) {
         this.context = context;
         this.casts = casts;
         this.crew = crew;
@@ -98,8 +100,8 @@ public class BaseImgTitleCardViewAdapter extends RecyclerView.Adapter<BaseImgTit
     public class BaseImgTitleCardViewHolder extends RecyclerView.ViewHolder {
 
         ImageView baseImgView;
-        TextView baseTitleTextView;
-        TextView baseDescriptionTextView;
+        TextView  baseTitleTextView;
+        TextView  baseDescriptionTextView;
 
         public BaseImgTitleCardViewHolder(View itemView) {
             super(itemView);

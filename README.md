@@ -20,7 +20,7 @@ Makes a network call to backend (written in GoLang)
 ![Movie Details] (/ExampleImages/movieDetailMain.png)
 
 ##### Movie Detail Credits
-!(Movie Credits) (/ExampleImages/movieDetailCredits.png)
+![Movie Credits] (/ExampleImages/movieDetailCredits.png)
 
 #### TV Show Detail Screen
 ![TV Show Details] (/ExampleImages/tvshowDetailMain.png)

@@ -23,13 +23,13 @@ Makes a network call to backend (written in GoLang)
 ![Movie Credits] (/ExampleImages/movieDetailCredits.png)
 
 #### TV Show Detail Screen
-![TV Show Details] (/ExampleImages/tvShowDetailMain.png)
+![TV Show Details] (/ExampleImages/tvmain.png)
 
 ##### TV Show Season Screen
-![TV Show Seasons] (/ExampleImages/tvShowDetailSeasons.png)
+![TV Show Seasons] (/ExampleImages/tvseason.png)
 
 ##### TV Show Credits Screen
-![TV Show Credits] (/ExampleImages/tvShowDetailCredits.png)
+![TV Show Credits] (/ExampleImages/tvcredits.png)
 
 #### Person Detail Screen
 ![Person Details] (/ExampleImages/personDetailMain.png)

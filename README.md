@@ -14,7 +14,7 @@ Makes a network call to backend (written in GoLang)
 
 ## Example Images
 #### Main Search Screen
-![Main Search] (/ExampleImages/searchMain.png)
+[Main Search](/ExampleImages/searchMain.png)
 
 #### Movie Detail Screen
 ![Movie Details] (/ExampleImages/movieDetailMain.png)

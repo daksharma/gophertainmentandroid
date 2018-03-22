@@ -14,25 +14,25 @@ Makes a network call to backend (written in GoLang)
 
 ## Example Images
 #### Main Search Screen
-[Main Search](/ExampleImages/searchMain.png)
+![Main Search](ExampleImages/searchMain.png)
 
 #### Movie Detail Screen
-![Movie Details] (/ExampleImages/movieDetailMain.png)
+![Movie Details](/ExampleImages/movieDetailMain.png)
 
 ##### Movie Detail Credits
-![Movie Credits] (/ExampleImages/movieDetailCredits.png)
+![Movie Credits](/ExampleImages/movieDetailCredits.png)
 
 #### TV Show Detail Screen
-![TV Show Details] (/ExampleImages/tvmain.png)
+![TV Show Details](/ExampleImages/tvmain.png)
 
 ##### TV Show Season Screen
-![TV Show Seasons] (/ExampleImages/tvseason.png)
+![TV Show Seasons](/ExampleImages/tvseason.png)
 
 ##### TV Show Credits Screen
-![TV Show Credits] (/ExampleImages/tvcredits.png)
+![TV Show Credits](/ExampleImages/tvcredits.png)
 
 #### Person Detail Screen
-![Person Details] (/ExampleImages/personDetailMain.png)
+![Person Details](/ExampleImages/personDetailMain.png)
 
 ##### Person Credits Screen
-![Person Credits] (/ExampleImages/personDetailCredits.png)
+![Person Credits](/ExampleImages/personDetailCredits.png)
